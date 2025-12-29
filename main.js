@@ -1,6 +1,5 @@
 let students = [];
 
-
 function addStudent() {
     let name = document.getElementById("studentName").value;
     let grade = Number(document.getElementById("studentGrade").value);
@@ -14,48 +13,38 @@ function addStudent() {
     showAll();
 }
 
-
 function showAll() {
-    let result = "";
-    students.forEach(s => {
-        let status = s.grade >= 50 ? "ناجح" : "ساقط";
-        result += `${s.name} : ${s.grade} - ${status}<br>`;
-    });
-    document.getElementById("output").innerHTML = result;
+    display(students);
 }
-
-
-function filterByGrade() {
-    let minGrade = Number(document.getElementById("filterGrade").value);
-
-    let filtered = students.filter(s => s.grade >= minGrade);
-
-    display(filtered);
-}
-
 
 function showPassed() {
     let passed = students.filter(s => s.grade >= 50);
     display(passed);
 }
 
-
 function showFailed() {
     let failed = students.filter(s => s.grade < 50);
     display(failed);
 }
 
+function filterByGrade() {
+    let min = Number(document.getElementById("filterGrade").value);
+    let filtered = students.filter(s => s.grade >= min);
+    display(filtered);
+}
 
 function display(arr) {
-    if (arr.length === 0) {
-        document.getElementById("output").innerHTML = "لا توجد نتائج";
-        return;
-    }
+    let tbody = document.getElementById("output");
+    tbody.innerHTML = "";
 
-    let result = "";
     arr.forEach(s => {
-        result += `${s.name} : ${s.grade}<br>`;
+        let status = s.grade >= 50 ? "ناجح" : "ساقط";
+        tbody.innerHTML += `
+            <tr>
+                <td>${s.name}</td>
+                <td>${s.grade}</td>
+                <td>${status}</td>
+            </tr>
+        `;
     });
-
-    document.getElementById("output").innerHTML = result;
 }

@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>Student Management System</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Students Management System</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <input type="text" id="studentName" placeholder="اسم الطالب">
-<input type="number" id="studentGrade" placeholder="الدرجة">
-<button onclick="addStudent()">إضافة طالب</button>
+<div class="container">
 
-<hr>
+    <h2>Students Management System</h2>
 
-<input type="number" id="filterGrade" placeholder="أقل درجة">
-<button onclick="filterByGrade()">فلترة بالدرجة</button>
+    <!-- Input Box -->
+    <div class="box">
+        <input type="text" id="studentName" placeholder="اسم الطالب">
+        <input type="number" id="studentGrade" placeholder="الدرجة">
+        <button onclick="addStudent()">إضافة</button>
+    </div>
 
-<button onclick="showPassed()">الناجحين</button>
-<button onclick="showFailed()">الساقطين</button>
+    <!-- Filters -->
+    <div class="filters">
+        <input type="number" id="filterGrade" placeholder="أقل درجة">
+        <button onclick="filterByGrade()">فلترة</button>
+        <button onclick="showPassed()">ناجحين</button>
+        <button onclick="showFailed()">ساقطين</button>
+        <button onclick="showAll()">الكل</button>
+    </div>
 
-<div id="output"></div>
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>الدرجة</th>
+                <th>الحالة</th>
+            </tr>
+        </thead>
+        <tbody id="output"></tbody>
+    </table>
 
+</div>
 
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
