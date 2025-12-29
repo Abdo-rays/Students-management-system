@@ -1,0 +1,42 @@
+body {
+    font-family: Arial;
+    background-color: #f4f6f8;
+    direction: rtl;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.search {
+    margin-top: 15px;
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+#output {
+    margin-top: 20px;
+    text-align: right;
+}

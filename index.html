@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Management System</h1>
+
+        <button onclick="showStudents()">عرض الطلاب</button>
+        <button onclick="calculateAverage()">حساب المتوسط</button>
+        <button onclick="showMinMax()">أعلى وأقل درجة</button>
+
+        <div class="search">
+            <input type="text" id="searchName" placeholder="اكتب اسم الطالب">
+            <button onclick="searchStudent()">بحث</button>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
