@@ -7,20 +7,20 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Student Management System</h1>
+    <input type="text" id="studentName" placeholder="اسم الطالب">
+<input type="number" id="studentGrade" placeholder="الدرجة">
+<button onclick="addStudent()">إضافة طالب</button>
 
-        <button onclick="showStudents()">عرض الطلاب</button>
-        <button onclick="calculateAverage()">حساب المتوسط</button>
-        <button onclick="showMinMax()">أعلى وأقل درجة</button>
+<hr>
 
-        <div class="search">
-            <input type="text" id="searchName" placeholder="اكتب اسم الطالب">
-            <button onclick="searchStudent()">بحث</button>
-        </div>
+<input type="number" id="filterGrade" placeholder="أقل درجة">
+<button onclick="filterByGrade()">فلترة بالدرجة</button>
 
-        <div id="output"></div>
-    </div>
+<button onclick="showPassed()">الناجحين</button>
+<button onclick="showFailed()">الساقطين</button>
+
+<div id="output"></div>
+
 
     <script src="main.js"></script>
 </body>

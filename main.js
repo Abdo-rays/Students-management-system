@@ -1,61 +1,61 @@
-
-let students = ["Ahmed", "Sara", "Omar", "Mona", "Ali"];
-let grades = [85, 45, 70, 95, 30];
+let students = [];
 
 
-function showStudents() {
-    let result = "";
+function addStudent() {
+    let name = document.getElementById("studentName").value;
+    let grade = Number(document.getElementById("studentGrade").value);
 
-    for (let i = 0; i < students.length; i++) {
-        let status = grades[i] >= 50 ? "ناجح" : "ساقط";
-        result += `${students[i]} : ${grades[i]} - ${status}<br>`;
+    if (name === "" || isNaN(grade)) {
+        alert("من فضلك أدخل البيانات كاملة");
+        return;
     }
 
+    students.push({ name, grade });
+    showAll();
+}
+
+
+function showAll() {
+    let result = "";
+    students.forEach(s => {
+        let status = s.grade >= 50 ? "ناجح" : "ساقط";
+        result += `${s.name} : ${s.grade} - ${status}<br>`;
+    });
     document.getElementById("output").innerHTML = result;
 }
 
 
-function calculateAverage() {
-    let sum = 0;
+function filterByGrade() {
+    let minGrade = Number(document.getElementById("filterGrade").value);
 
-    for (let i = 0; i < grades.length; i++) {
-        sum += grades[i];
-    }
+    let filtered = students.filter(s => s.grade >= minGrade);
 
-    let average = sum / grades.length;
-    document.getElementById("output").innerHTML =
-        `متوسط الدرجات = ${average.toFixed(2)}`;
-}
-
-function showMinMax() {
-    let max = grades[0];
-    let min = grades[0];
-
-    for (let i = 1; i < grades.length; i++) {
-        if (grades[i] > max) max = grades[i];
-        if (grades[i] < min) min = grades[i];
-    }
-
-    document.getElementById("output").innerHTML =
-        `أعلى درجة = ${max}<br>أقل درجة = ${min}`;
+    display(filtered);
 }
 
 
-function searchStudent() {
-    let name = document.getElementById("searchName").value;
-    let found = false;
+function showPassed() {
+    let passed = students.filter(s => s.grade >= 50);
+    display(passed);
+}
 
-    for (let i = 0; i < students.length; i++) {
-        if (students[i].toLowerCase() === name.toLowerCase()) {
-            document.getElementById("output").innerHTML =
-                `${students[i]} درجته = ${grades[i]}`;
-            found = true;
-            break;
-        }
+
+function showFailed() {
+    let failed = students.filter(s => s.grade < 50);
+    display(failed);
+}
+
+
+function display(arr) {
+    if (arr.length === 0) {
+        document.getElementById("output").innerHTML = "لا توجد نتائج";
+        return;
     }
 
-    if (!found) {
-        document.getElementById("output").innerHTML =
-            "الطالب غير موجود";
-    }
+    let result = "";
+    arr.forEach(s => {
+        result += `${s.name} : ${s.grade}<br>`;
+    });
+
+    document.getElementById("output").innerHTML = result;
 }
