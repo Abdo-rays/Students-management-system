@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Students Management System</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
+    <h2>Student Management System</h2>
 
-    <h2>Students Management System</h2>
-
-    <!-- Input Box -->
     <div class="box">
-        <input type="text" id="studentName" placeholder="اسم الطالب">
-        <input type="number" id="studentGrade" placeholder="الدرجة">
-        <button onclick="addStudent()">إضافة</button>
+        <input type="text" id="studentName" placeholder="Name student ">
+        <input type="number" id="studentGrade" placeholder="studentGrade (0-100)" min="0" max="100">
+        <button id="addBtn" onclick="addOrUpdateStudent()">Add</button>
     </div>
 
-    <!-- Filters -->
     <div class="filters">
         <input type="number" id="filterGrade" placeholder="أقل درجة">
-        <button onclick="filterByGrade()">فلترة</button>
-        <button onclick="showPassed()">ناجحين</button>
-        <button onclick="showFailed()">ساقطين</button>
-        <button onclick="showAll()">الكل</button>
+        <button onclick="filterByGrade()">Filter</button>
+        <button onclick="showPassed()">Successful</button>
+        <button onclick="showFailed()">Fallen</button>
+        <button onclick="showAll()"> View all</button>
     </div>
 
-    <!-- Table -->
     <table>
         <thead>
             <tr>
-                <th>الاسم</th>
-                <th>الدرجة</th>
-                <th>الحالة</th>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>the condition</th>
+                <th>procedures</th>
             </tr>
         </thead>
         <tbody id="output"></tbody>
     </table>
-
 </div>
 
 <script src="main.js"></script>
